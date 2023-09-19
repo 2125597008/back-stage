@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="./css/layui.css">
+    <script src="./node_modules/layui/dist/layui.js "></script>
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+</head>
+<style>
+    .layui-header {
+        width: 1440px;
+        left: 200px !important;
+    }
+
+    .layui-layout-admin .layui-side {
+        top: 0 !important;
+    }
+
+    .layui-side-scrolldy {
+        color: #fff;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    .iconfont {
+        font-size: 20px;
+    }
+
+    dd i {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .icon-fenlei1 {
+        font-size: 30px;
+        float: left;
+        margin-top: 15px;
+        margin-left: 10px;
+        color: #fff;
+    }
+
+    .titl {
+        float: left;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .content {
+        width: 1300px;
+        margin: auto;
+    }
+
+    .tutorial {
+        width: 100%;
+        height: 230px;
+        margin-top: 40px;
+        display: inline-block;
+    }
+
+    .state {
+        width: 279px;
+        height: 110px;
+        border: 1px solid #e2e3e2;
+        float: left;
+        margin-left: 30px;
+    }
+
+    .state-title {
+        width: 100%;
+        height: 48px;
+        background-color: #f2f6fc;
+        color: #606060;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .state-title span {
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .state span:nth-child(2) {
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 10px;
+        color: #409eff;
+        font-size: 18px;
+    }
+
+    .states {
+        width: 279px;
+        height: 100px;
+        border: 1px solid #e2e3e2;
+        float: left;
+        margin-left: 30px;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    .states img {
+        width: 60px;
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .states span {
+        display: inline-block;
+        color: #909399;
+        font-size: 16px;
+    }
+
+    .states p {
+        position: absolute;
+        left: 85px;
+        top: 55px;
+        color: #606266;
+        font-size: 18px;
+    }
+
+    .erwei {
+        width: 250px;
+        height: 230px;
+        float: right;
+        border: 1px solid #e2e3e2;
+        margin-right: 40px;
+    }
+
+    .erwei img {
+        width: 150px;
+        display: inline-block;
+        margin-left: 51px;
+        margin-top: 20px;
+    }
+
+    .erwei p {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .erwei p span {
+        color: #409eff;
+    }
+
+    .todolist {
+        width: 1230px;
+        height: 240px;
+        display: inline-block;
+        margin: 30px;
+        border: 1px solid #e2e3e2;
+    }
+
+    .todolist-title {
+        width: 100%;
+        height: 50px;
+        background-color: #f2f6fc;
+    }
+
+    .todolist-title p {
+        display: inline-block;
+        margin-top: 12px;
+        margin-left: 20px;
+        color: #606266;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+
+    .todolist ul {
+        width: 1200px;
+        height: 100%;
+        margin: auto;
+        margin-top: 25px;
+    }
+
+    .todolist li {
+        width: 353px !important;
+        height: 40px !important;
+        margin-left: 20px !important;
+        display: inline-block;
+        border-bottom: 1px solid #e2e3e2;
+        margin-top: 5px;
+    }
+
+    .todolist li span {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 16px;
+        color: #606266;
+    }
+
+    .todolist li span:nth-child(2) {
+        color: red;
+        float: right;
+    }
+
+    .Overview {
+        width: 1230px;
+        height: 200px;
+        display: inline-block;
+        margin: 30px;
+    }
+
+    .Overview-left {
+        width: 600px;
+        height: 200px;
+        float: left;
+        border: 1px solid #e2e3e2;
+    }
+
+    .Overview-right {
+        width: 600px;
+        height: 200px;
+        float: right;
+        border: 1px solid #e2e3e2;
+    }
+
+    .Overview-left-title {
+        width: 100%;
+        height: 50px;
+        background-color: #f2f6fc;
+    }
+
+    .Overview-left-title p {
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 14px;
+        margin-left: 20px;
+        color: #606266;
+        font-weight: bold;
+    }
+
+    .Overview-left-size {
+        width: 500px;
+        height: 45px;
+        margin: auto;
+    }
+
+    .Overview-left-size ul {
+        margin: auto;
+    }
+
+    .Overview-left-size ul li {
+        float: left;
+        width: 125px;
+        text-align: center;
+        font-size: 24px;
+        color: #f56c6c;
+        margin-top: 40px;
+    }
+
+    .Overview-left-size ol li {
+        float: left;
+        width: 125px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 10px;
+        color: #606266;
+    }
+
+    .statistics {
+        width: 1230px;
+        height: 480px;
+        display: inline-block;
+        margin: 30px;
+        border: 1px solid #e2e3e2;
+    }
+
+    .statistics-title {
+        width: 100%;
+        height: 50px;
+        background-color: #f2f6fc;
+    }
+
+    .statistics-title p {
+        font-size: 16px;
+        color: #606266;
+        display: inline-block;
+        margin-top: 14px;
+        margin-left: 20px;
+        font-weight: bold;
+    }
+
+    .statistics-left {
+        width: 220px;
+        height: 410px;
+        border-right: 1px solid #e2e3e2;
+        display: inline-block;
+
+    }
+
+    .statistics-left ul {
+        width: 180px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .statistics-left ul li {
+        height: 410/4px;
+        margin-top: 20px;
+    }
+
+    .statistics-left ul li p {
+        font-size: 14px;
+        color: #909399;
+    }
+
+    .statistics-left ul li span {
+        font-size: 24px;
+        color: #606266;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .statistics-left ul li p i {
+        display: inline-block;
+        margin-right: 5px;
+        color: #67c23a;
+    }
+
+    .statistics-left ul li:nth-child(2) p i {
+        display: inline-block;
+        margin-right: 5px;
+        color: red;
+    }
+
+    .statistics-left ul li:nth-child(4) p i {
+        display: inline-block;
+        margin-right: 5px;
+        color: red;
+    }
+
+    #main {
+        width: 1000px;
+        height: 100%;
+        float: right;
+    }
+</style>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <i class="iconfont icon-fenlei1"></i>
+            <a href="" class="titl">仪表盘</a>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="javascript:;">
+                        <img src="https://unpkg.com/outeres@0.0.10/img/layui/icon-v2.png" class="layui-nav-img">
+                        tester
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">Your Profile</a></dd>
+                        <dd><a href="javascript:;">Settings</a></dd>
+                        <dd><a href="javascript:;">Sign out</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test" id="left">
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <!-- <blockquote class="layui-elem-quote layui-text">
+                    Layui 框体布局内容主体区域
+                </blockquote> -->
+                <div class="layui-card-body">
+                    <div class="content">
+                        <div class="tutorial">
+                            <div class="state">
+                                <div class="state-title">
+                                    <span>学习教程</span>
+                                </div>
+                                <span class="jc">mall学习教程</span>
+                            </div>
+                            <div class="state">
+                                <div class="state-title">
+                                    <span>学习教程</span>
+                                </div>
+                                <span class="jc">mall视频教程(2023)</span>
+                            </div>
+                            <div class="state">
+                                <div class="state-title">
+                                    <span>学习教程</span>
+                                </div>
+                                <span class="jc">mall项目</span>
+                            </div>
+                            <div class="erwei">
+                                <img src="https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/banner/qrcode_for_macrozheng_258.jpg"
+                                    alt="">
+                                <p>mall全套学习教程连载中</p>
+                                <p><span>关注公号</span>,第一时间获取</p>
+                            </div>
+                            <div class="states">
+                                <img src="data:image/png;base64,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"
+                                    alt="">
+                                <span>今日订单总数</span>
+                                <p class="jc">200</p>
+                            </div>
+                            <div class="states">
+                                <img src="data:image/png;base64,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"
+                                    alt="">
+                                <span>今日销售总额</span>
+                                <p class="jc">￥5000.00</p>
+                            </div>
+                            <div class="states">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAVxUlEQVR4Xu2dCZRcVZnHf19VdyAkKKKCy8gighhHBMMABtNVaWSZGUBElgGEpF8lIhM3jrhxRomihxncEHEUknqdsIweJIq4MCCkXzVE3CWKICprGDUgM2ASJOnu9825lQp2p6veve/Ve5WqSt9zcjrnvO9+97vf96/77rv3W4SptkNrQHbo2U9NnikA7OAgmALAFAC6UwNHlnXXnhwHA68T5SBVDkB4vigzEGYCM4DdzOwV/iLwDLBRlY0iPKPK48A9ItwXhvw6l+e+YECe7TZtdc0K0LdUX5PLc5RCP3CowCvSNpbCgwI/B24LhVXDA/K7tMdoNb+OBUBxUF8ShhwjwnGi9CPs2WrlKTwqyiqUW3rGuPm2c+XpVsvQ7HgdBYD+5brf2BgnA29FOEJoo02ssgn4jgjX/GWE7/3sXBlp1jit6N/2AHjjMt19mrBYhNOB17ZCKSmM8ZTCV3M5rhtaIKtT4JcZi7YFwNxr9KX5zXwQYVFtw5aZEjJlrKxBWRKU+BYimulYCZi3HQD6luq+uTwXKpwjMC3BnNq1y90CS4Y8+VY7Cdg2AHjzlfr80V4+CZwH5NtJSWnKonCHjnHu8CK5L02+SXltfwAs0VxhL84VuBh4YdKJdFI/VUZE+I/pG/jkze8Rs3ncbm27AqBY1jcBX0b4+0w0oKxRuB/hN8BvcjkeHRXWy2bW907jL7fPlyfHj1v7ythL4JUI+0D13/7A4ZnIBw8A7ww8uS0j/la22w0AxbJegbDYKqEjQfU0T7kDIRgLGb5jofzYsauVbPaVusvzepmrShFhXgaAuLZnhHdtj3OElgNgXllfHQpfF3idVfM2AvMLF74hyveCkvzURp7W8+L1OjNcT78I/yJwRhp8VXkol+fUoQXyszT4ufJoKQCKZX0nwpddhatHp/AD4IZ8yDdWLZRHmuGVRl9z59ArnKzKfNmyOjTVVHlPpSRfbIpJjM4tAcCp12v+8fX4IpwTQ7bxpGMK39CQS4YXyi8S8si8W3GZvkpzfATlbBF6kw6oyk2j8PbVJVmflIdrv8wBYJZLXc9NSX4dqjwjgp8L+Uw7/NpdlVpcqn9Hng8BC4GdXfttQ/ebsV767zhb/piwv1O3TAHQv0JfPjbGrQKznKQZT6RcR44LggH5U+y+bdJhrq8vzsEFKOeJsGtcsRTWSkh/sFB+H7evK31mAJjr66y8uSmLe0un3B8q7xheKMOuk2h3uqOW6p6jOa4S4cQEsj4Zhhyd1asvEwDMXaEH5UcZNg4YrhNWUIHPrh/hwk65SXOd21a6oq+no5jP3xfF7GscVU6olGQoZj8reeoA6BvU/SXkhyLsbh19K4GyTuGMLCboLEOLCKuvBWVZ3NVAYXMYMjfN8w0z5VQB0OfrK0T5kQgvddWnKrfKKGcF58qfXft0A13B1/NEuRyhJ8Z8nhLliKGS3B+jTyRpagCoIdsYf19X4VT5dKUkH3Sl7za6eb4WQvimwAtc56bKH3pC3nD7Ilnn2ieKLhUAmJu8kR7uEuE1LkKZ9z2wuOJJU4dCLmO1O01xUPdBuRk40FlW5Z4RmJPGOUHzAFCV4iCrgKLLBMxNWE44td3uxV1kz4rGnJWwgW8Cb3YeQ/luUJLjnekbEDYNgOKgXmQ8XlwFUeHEyoB825V+R6Ir+rocmO88Z+VdQUm+5Exfh7ApABQHtajKKlfnTIUzK558tRmBu7mvOTJ/YgM3Ak6/bPNlICGzg4VyT1K9JAaAOeULx1jj6sSh8KGKJ5cmFXRH6Tfrep22xwZuifFK/a3keH3SoJXEACj4Oiww19Ewnw08ucCRdhKZWWlQLqop5SngboTzgwG5OynPNPoVB/VgQi5CqhFIZmt7Nzk+3qxctT1BAMx2lHNZ4Ilxno3dEgGgr6zn5IQVLqOZm61KSd7iQluPpljWBQiDdfsrA0FJzHuz5S1SrpC3BgvFLOWJ21Er9IVjo6xGeLULk1B5y3BJbnKhHU8TGwDFQd0NxVxOWP33TORM7wgHJfV0qX0imevfagxfu4Ag0vhbhHwK4ZBgQB6Oa5Dx9DUP6V+5uMUbXe+ygQPi+hjGBkDB1ysF3mGdmLIpzPEPwwNiJpCoFcv6PoTPWzu3cCVwMP4WcZXzg5JcZpXdQhBrtYWLKp58Is6YsQAwb7nODkN+4rLrD4Wzhgfkv+IIsy1t0VejwPc68WgBCJyNv0XgLwSevM9JdgtRwdfrBM608lI2jfRwwOr58qiVtkYQCwAFX1cLzLExV/h6xZPTbHS258WyLkGqmz+3liEIYhrfrAAfD0rifD4SNcFqqDuscTlmj6t7ZwDUduJO15Eh7DXsyVo3qzWmqu6ylXguYBmAILbxzZS27AFS+0oplvVQhJ+46DQMeYOr/4AzAAplXeXk1pUi8s1kY70GtmonRRAkMn6Ky/94gxd8LQt4VhAoK4OSnGKlc70OLg7qESh32Riq8sddNrJv3J2ojW/sI1LDMAUQJDT+isCTBbY5JXk+52rdY9ooD9q+Csxl21ieA++cL7+1jeO0AhTKeosIx9iYEXJGsFC+ZqVLQNBqELSb8beqzPXuRWGw4ol1tbACoG+ZHpLLVdOiRDaFn1Q8OcxG18zzVoGgXY1ffSUO6s6qPCKwh8UgoyOw9+qS/CGKzgqAQlmvFuHsKCZmyQnzHHzHfPllMwZ26Zs1CIrL9CRy1avZOC2zZb+eEAVfBwR8BwGtn6KRADBoI+SJWlathuMpfLviSRKPV4c5TCZJAAKnkzmnk8fJ4rTU+NXhTUT1K3jM5nqnyvonduVF954mmxspOhoAxosVrO/0pOfQiaxf6xQbBA4nc84nj38TvPXGr41dKOsnRPioTYcCJ0U530QCoODrTQInWAZ5MniUPVgioU2YtJ/HAoHD52nMT87tZnyjR5NCJzfC/9hOZU2uooonDU8RGwLgTdfpC/LPss4W46ZwScWTC9M2ris/ZxC4rQCuJ4/b1fhbdVMs680Ix1n2Z3/dPJMX3nWa/LUeXUMA9A3qmTkTnmVpI3n2jnP2bOOX5LkTCIR9bbdzjiePbWF8o6e+QT05p6x00NmpgSc3xAJAoawmlCnSyUBhVcWToxwEyJwkEgQOy/+4X1XUKtA2xn9OXl9NPIXtar6h3A1XgGJZf4fwqijLpXHjlyYyqps4MAbcEpKmPI2yIK5zRl0+mFRvzV/vpjlfw8vxpvBPgSd1g3XqAqB25BgZeKBKOAq7peGbnrZSqp9zgG3Jt42bFh/bOM08L/pqvIitXlGjsN+dnphj5AmtLgAKg3q2KFdbNhe/qnhyUDPCT/VtXgMuP1YzSiiUhgdk0uFRfQA43DopXFXx5NzmpzDFoVkNFHz9pUPOpWsDTyad6NYHQFl/LsIhFsEWBJ44OYY2O8Gp/tEaKJT1UhE+YFmx11Y82cvtFeDrJmuaVuE1wYCY/HuZtqoTqomWCTm4lrsv0/GaZq48RQ7jCLKi2T2Iqyzzyvo2Fep+5m3zwn9BMCDGrf65NmkF6F+me4c5Ir1ZzRlzpSTPcxUwKV3tYsa4hDf2Ck7KvBX9hCXBgHw866FqxTLutY0jOQ7dNg3dJADM8/VYhf+OXE6Umysl+SfbgM08T3gx08yQ2fRNIUbAJlgtpMyknI3MsRwqpw+X5PrIFcDpQkS5LCjJ+TbBmnnudLrXzACt6/tw4IlzzoSkYhXKeq8tPF/hwoonl0QDwNevALbd/UcDT0xm78xa0VfjDLol5KrTmzDp3Zv2lAq+rhSq1VQaN6UclMSkrnuuTXoFFH01odvR0anKeUFJDFAya8Wymvi/12c2QCsZtwAARV9NtvV/swBgUk6BegAwQYmFKEainDJUEpdLiMRq7ppXgPJIUJLqyWSWzfFEsBJ4MiGRRz0AWJdeVfqzzuhV3QSG1Shg51RzWSo4Me8WbAKNbH1lPTEnRFYjUeUXlZK8IfIVUPD1gWq+/IgWCgc1E/PnqsxqMErIjR0LAgcfBFdd2OgKgzpXFFtyzQcCTyZc8E1eAcpqfAAjExmO9fKyrHPYbp1w9SAo5KRa8QabHqKfSzXO0Ham8AXMYU5zzRwG3diqgyAjqonb1JDIlPkKj1c8mVBfsd4rwFrZatNMdmnkYdKc3rLtXfTVOjdTECIYELMP6qjm4r5vkm9XSmJK5j7XJgGg4OszAtOjZj+6E7vfeZb8X0dpaEuY2Q4NAOMfEZRkwgpYDwCPC7w4yri5HK9atUBMvZuOat0MgHnL9UgNuTPSIMpjQUkm1FSeDICyPmgLQ1bhsMqAOEWqthNCuhkAhUE9WpRbo/StcG/FkwnVV+utANa7ZYHjhjwxmaw6qnUzAFw+A4EfBZ4cEb0HKOsPRHijBUkdme+vqwEwqF5OKVvs9v2KJxOCfOutAKbCx9GRjITFlQH5z476+Xf5JtApm0qdvAH19gArHIo7ZX4ZlAW4unkFKPjqCwxYVoDLK55MyLlUDwAXivApy25yeVCSyMGyMGCzPLscALcL9FvsNukSbzIABvVUUSY4DWzLtN5uslnjNOpvTgJFKejWbJzNDOSS1FpZjsUjyiaCKHersKaVJ4EFX58WiPTSqneHM9kjqKyvV6n6tEW2VpwG1hJTGZewzG/TbPNN8PypWq5Aq89+At4TurxphR7QM4a1iki9I/xJAPjHy3Wnv87kWatQGR+Zdo1LWMZ6MnYq+vp24BqLzTYGnszclqaRW/j9IhxgYfiBwJPPWIGSkKDoq8m1mzjHcMJhs+iWuUuYY1j7DwNPJn3eNxMYkkoyyIbvfl8f6tClf9KUAk+sqXiaQV7B5exGWVopyaQUv40AYM1BY5ITVzzZuxnBo/oWy2rSunS2M8jWCWboEmbyOPRs4gmbR3CjYh11AWBq/+UUa465zT3s+YNz5PEsQFD01eqalsW4qfPM2CWsUNZFIlxlk7uRrRqHh7vFnS8KPFlmGzzJ8zipaZPwb1mfjL2Cir5+31psSrknKMnr6s25IQBc3IxV+XGlJIdnpUynGIWsBk+HrzVNWzPDuC7/RMRxRKWIsV4uGOGz9g+slWU5qVaWxebOZdNnpLdztbOyBmnSJUwJyBFk7VlUrT4KLncyJwSefCfWClBLUf6kLUkUypeCkrzLpvl2eN5tR8FFX032dlu9xo3Gx7NRUanIz5NCWb9lLXKsPD19I3umnSA6C8B0EwCqRbqV+21p4qgTDTRet9EA8PUMAWvVj1CZP1ySyIwiWRg0Ls9uAoBr4EwYUhheKA3dxSMB8Mbrdfq0DTxpcxJFuT9Yy6ztkSwyDgi6BQAmSWR+M4/aKo+bQtOVkrw8SkfWEyqXdHG1zdN2K+HmCoJuAUCxrFcgLLbNW+ETFU8iS+5YAWCSD0ieXzu8ax4jx/5JK1jaJpPG824AQPFKfZH2VlPETovSiSkrG/ayjy2AxwoAM4hTxLD5glI+WCnJp9MwVhY8ugIAbuH7uCbxcgLAPF8LCvZoGeXpnlH2TlooMgujj+fZ6QAwhaNU+LFtNTY5HPPKK1ctlEdsOnUCQG0VsEYNbzlH4dKKJx+yDbw9nnc0AFSlMMgah3RwxgjXBSUxPgLWFgcATrUDgGcZY/9gkTxmHb3FBJ0MgGJZ34nwZZvKTPUWFV49PCC/s9Ga584AMGwLg9wjMMuB8RWBJ+92oGspSacCoFav2fhHWI/CFb5Z8SQ6Vcw4rbsDwCQhWKZ9uRwVB6vVdT9y6JcpSacCwLleoPlFKwcOlcTqH7hV0bEAUN0LlPUGhLfZLJWlr4Bt7EbPOxEAsYpHKxdXSvKxOPqJDwCTukUxy1HjpqwLSvKSOIK0grbTAOBasLO2+TZBva+New4TGwC1VeAShA83NJry70FJPtIKo8YZwxEAqdb8jSPfeNpaTSCz648M1X+uT0Lv40QAMIMWfP2uQL1soT8aUY5uyzoCDqnnsnbgdAGEuYPZaT13OafJU74WlOQMF97b0iQGQBUEZV2EcBLKXOAhhJUyk88Fp8mGJMJk3cfBwyhTDx6X+c2+UnfZtbea7evNLvTAw7VK5YnyGjUFAEcB24qs4TWq8QTKUdw2m3YrhT/8Wn3e9M2YvAsTYvgbyaDKSNjDoc1UbN3hAFDbwyxAWIBWU9DfjRIEJVnSSmNvO5b51teQighxqrC8O/Dkimbk3iEB0IzCsuhryr70jjLkeMhWFSGtcr1TAMjCojF49i3VfSXPLQL7O3dTfjqtl+Kt58hG5z4NCKcA0KwGm+hf9PUUVXwRdo3B5oF8nsNvny9PxujTkHQKAGloMSaPWdfrtD3W8zkXr54JrJV1Iz0clmal1ikAxDRes+RHrtC9eka50aEo10TbK+tFmRMslHualWF8/ykApKnNCF7FIe3RBzlf4GMIk+L0o8Qw7l2iHBWUJDoRZIK5TAEggdLidjFZPMOQwVgbvdogpkBXTjhhyBOXW9i4osXwB4jNOlkHkxkkhH4JmZGD4aGSrEnGafv36l+hLx8b41KBMxNJozwmeY4bWiC/TtTfoVNbrQDFsl6LcNZ4uRXWClzOTL7SrkfM2+r5yLK+rFc4X2GxNaaigZFU+WU4jeNsXr0ONo4kaRsAFMr6JRH+taG0phK4sHRE+fzqkvyh2Yln0b/qMCO8p3o/YinhZhn/thHl5FZcqLUFAPqX635hyO8djTKmVL2SbhjpYWVWCSocZaH2SXcmW4pRNFXlzJztAxdX1vKpVkVZtQUAioP6XhPD7qr0rXTG/RmqKdJvkBxfDwbkT3F5JKE3cfn5zRxPyPECx6aSymZLoOfprd7ztAcAfL0AaDqgxCSsMJc7otynsEZy3JcGKMwKNabMQjlElGMQjkwCnEZ9tqcrfVsAoM/XOTlYnaZSx/EyCRvN4ck6qCZTWofwZ/P/EJ7IQ++YMCOn7ALMUMWUVJlhCmcpzKrdzu2ckWw/HIPFd3jy84z4W9m2BQCMlEVfTb3iY60SdwOBVsH44cBjBSL2MjYZzrltADDX1xfnqVa8aGojlaGummetjKrwxVHlolbs8F0EbhsAGGGPuVpnbBrl/SjvFWF3lwl0CI1JvbssF/IZl3i9Vs6prQCwdeK1fMVnA+8HDmylQtIcS5X/RbhibCcua9cqa20JgOeMoCrFQf5ZlQ+I0JemcbLiZWLzjIuZCP6mmaxs9/qK7Q2AcVaqJUU6RahGJc3OyoBJ+ZrUuSgr8kq53Zb5qDl1DADGT6J2p36KCVETmJPUaCn0e1iV7+eElZ1YRc3MvyMBMN5wxpV65xEOF+UwZctfhAn1cVMwdJWFqb0ryiqE20fy3JqmZ05aMsbl0/EAqDfh/mW692ie2TlljnH9VqmWUtlZlOkI07X2d9xNnTksMsEsG1XYaEqsAmsRTCX1B1V5QHI8lMapYlwDZU3flQDIWmndxH8KAN1kzQRzmQJAAqV1U5cpAHSTNRPM5f8BFx6S+VnMF3cAAAAASUVORK5CYII="
+                                    alt="">
+                                <span>昨日销售总额</span>
+                                <p class="jc">￥5000.00</p>
+                            </div>
+                        </div>
+                        <div class="todolist">
+                            <div class="todolist-title">
+                                <p>待处理事务</p>
+                            </div>
+                            <ul>
+                                <li><span href="">待付款订单</span><span>(10)</span></li>
+                                <li><span href="">已完成订单</span><span>(10)</span></li>
+                                <li><span href="">待确认收货订单</span><span>(10)</span></li>
+                                <li><span href="">待发货订单</span><span>(10)</span></li>
+                                <li><span href="">新缺货登记</span><span>(10)</span></li>
+                                <li><span href="">待处理退款申请</span><span>(10)</span></li>
+                                <li><span href="">已发货订单</span><span>(10)</span></li>
+                                <li><span href="">待处理退货订单</span><span>(10)</span></li>
+                                <li><span href="">广告位即将到期</span><span>(10)</span></li>
+                            </ul>
+                        </div>
+                        <div class="Overview">
+                            <div class="Overview-left">
+                                <div class="Overview-left-title">
+                                    <p>商品总览</p>
+                                </div>
+                                <div class="Overview-left-size">
+                                    <ul>
+                                        <li>100</li>
+                                        <li>400</li>
+                                        <li>50</li>
+                                        <li>500</li>
+                                    </ul>
+                                    <ol>
+                                        <li>已下架</li>
+                                        <li>已上架</li>
+                                        <li>库存紧张</li>
+                                        <li>全部商品</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="Overview-right">
+                                <div class="Overview-left-title">
+                                    <p>用户总览</p>
+                                </div>
+                                <div class="Overview-left-size">
+                                    <ul>
+                                        <li>100</li>
+                                        <li>200</li>
+                                        <li>1000</li>
+                                        <li>5000</li>
+                                    </ul>
+                                    <ol>
+                                        <li>今日新增</li>
+                                        <li>昨日新增</li>
+                                        <li>本月新增</li>
+                                        <li>会员总数</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics">
+                            <div class="statistics-title">
+                                <p>订单统计</p>
+                            </div>
+                            <div class="statistics-left">
+                                <ul>
+                                    <li>
+                                        <p>本月订单总数</p>
+                                        <span>10000</span>
+                                        <p><i>+10%</i>同比上月</p>
+                                    </li>
+                                    <li>
+                                        <p>本周订单总数</p>
+                                        <span>1000</span>
+                                        <p><i>-10%</i>同比上周</p>
+                                    </li>
+                                    <li>
+                                        <p>本月销售总额</p>
+                                        <span>100000</span>
+                                        <p><i>+10%</i>同比上月</p>
+                                    </li>
+                                    <li>
+                                        <p>本周销售总额</p>
+                                        <span>50000</span>
+                                        <p><i>-10%</i>同比上周</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="statistics-right" id="main">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="layui-footer">
+
+            底部固定区域
+        </div>
+    </div>
+</body>
+<script src="./nav.json"></script>
+<script src="./node_modules/echarts/dist/echarts.common.min.js"></script>
+<script>
+    layui.use(['element', 'layer', 'util'], function () {
+        var element = layui.element;
+        var layer = layui.layer;
+        var util = layui.util;
+        var $ = layui.$;
+        //头部事件
+
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: [
+                    {
+                        name: '销量',
+                        itemStyle: {
+                            color: "red",
+                        }
+                    },
+                    {
+                        name: '可远观而不可亵玩焉',
+                        itemStyle: {
+                            color: "aqua",
+                        }
+                    },
+                ]
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20],
+                    itemStyle: {
+                        color: "red"
+                    }
+                },
+                {
+                    name: '可远观而不可亵玩焉',
+                    type: 'bar',
+                    data: [13, 50, 126, 120, 52, 26],
+                    itemStyle: {
+                        color: "aqua"
+                    }
+                },
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        (function () {
+            $.ajax({
+                url: "./nav.json",
+                type: "get",
+                dataType: "json",
+                success: function (res) {
+                    if (res.code == 200) {
+                        var html = ``
+                        res.data.forEach((item) => {
+                            html += `  <li class="layui-nav-item">
+                            <a class="" href="javascript:;"><i class="iconfont ${item.icon}"></i>&emsp;&emsp;${item.title}<i class="layui-icon layui-icon-down layui-nav-more"></i></a>`
+                            if (item.children.length > 0) {
+                                html += `<dl class="layui-nav-child">`
+                                item.children.forEach((child) => {
+                                    html += `
+                                    <dd><i class="iconfont ${child.icon}"></i><a href="javascript:;">${child.title}</a></dd>`
+                                });
+                                html += `</dl></li>`
+                            }
+                        })
+                    }
+                    $('#left').html(html);
+                    $(".layui-nav-item a").click(function () {
+                        $(this).parent().toggleClass("layui-nav-itemed");
+                    })
+                }
+            })
+        })()
+
+        util.event('lay-header-event', {
+            menuLeft: function (othis) { // 左侧菜单事件
+                layer.msg('展开左侧菜单的操作', { icon: 0 });
+            },
+            menuRight: function () {  // 右侧菜单事件
+                layer.open({
+                    type: 1
+                    , title: '更多'
+                    , content: '<div style="padding: 15px;">处理右侧面板的操作</div>'
+                    , area: ['260px', '100%']
+                    , offset: 'rt' //右上角
+                    , anim: 'slideLeft'
+                    , shadeClose: true
+                    , scrollbar: false
+                });
+            }
+        });
+    });
+</script>
+
+</html>

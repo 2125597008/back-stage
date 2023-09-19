@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4257204 */
+  src: url('//at.alicdn.com/t/c/font_4257204_xmautx55ay.woff2?t=1695037804989') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4257204_xmautx55ay.woff?t=1695037804989') format('woff'),
+       url('//at.alicdn.com/t/c/font_4257204_xmautx55ay.ttf?t=1695037804989') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fenlei1:before {
+  content: "\e71b";
+}
+
+.icon-shouye:before {
+  content: "\e751";
+}
+
+.icon-goods-copy:before {
+  content: "\e64a";
+}
+
+.icon-fenlei:before {
+  content: "\e653";
+}
+
+.icon-liebiao:before {
+  content: "\e88f";
+}
+
+.icon-shiyongwendang:before {
+  content: "\eb66";
+}
+
+.icon-icon_tianjia:before {
+  content: "\eb89";
+}
+
+.icon-biaoqian:before {
+  content: "\eabd";
+}
+
+.icon-hrsalarypunishmentType:before {
+  content: "\e64d";
+}
+
+.icon-yibiaopan:before {
+  content: "\e6cf";
+}
+
+.icon-shipin:before {
+  content: "\e625";
+}
+
+.icon-shangcheng:before {
+  content: "\e6b3";
+}
