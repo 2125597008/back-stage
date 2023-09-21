@@ -12,9 +12,9 @@
                     "url":""
                 },
                 {
-                    "title":"学习教程",
+                    "title":"Map",
                      "icon":"icon-shiyongwendang",
-                     "url":""
+                     "url":"./map.html"
                  },{
                     "title":"视频教程",
                      "icon":"icon-shipin",
