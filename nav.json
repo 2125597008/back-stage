@@ -16,9 +16,9 @@
                      "icon":"icon-shiyongwendang",
                      "url":"./map.html"
                  },{
-                    "title":"视频教程",
+                    "title":"banner ",
                      "icon":"icon-shipin",
-                     "url":""
+                     "url":"./轮播图.html"
                  }
             ]
         },

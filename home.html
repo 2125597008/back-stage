@@ -342,6 +342,28 @@
         height: 100%;
         float: right;
     }
+
+    .layui-card-body {
+        overflow: hidden;
+    }
+
+    /* 隐藏滚动条样式（仅适用于Chrome和Safari浏览器） */
+    .layui-card-body::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    .layui-card-body::-webkit-scrollbar-thumb {
+        background-color: #888;
+    }
+
+    .layui-card-body::-webkit-scrollbar-track {
+        background-color: #f2f2f2;
+    }
+
+    .layui-card-body {
+        width: 100%;
+        height: 100vh;
+    }
 </style>
 
 <body>
@@ -536,7 +558,6 @@
             </div>
         </div>
         <div class="layui-footer">
-
             底部固定区域
         </div>
     </div>
@@ -717,12 +738,12 @@
                         var html = ``
                         res.data.forEach((item) => {
                             html += `  <li class="layui-nav-item">
-                            <a class="" href="javascript:;"><i class=   "iconfont ${item.icon}"></i>&emsp;&emsp;${item.title}<i class="layui-icon layui-icon-down layui-nav-more"></i></a>`
+                            <a class="" href="javascript:;"><i class="iconfont ${item.icon}"></i>&emsp;&emsp;${item.title}<i class="layui-icon layui-icon-down layui-nav-more"></i></a>`
                             if (item.children.length > 0) {
                                 html += `<dl class="layui-nav-child">`
-                                item.children.forEach((child) => {
-                                    html += `
-                                    <dd><i class="iconfont ${child.icon}"></i><a href="${child.url}">${child.title}</a></dd>`
+                                item.children.forEach((child, index) => {
+                                    html += `   
+                                    <dd data-index="${index}"><i class="iconfont ${child.icon}"></i><a href="javascript:;">${child.title}</a></dd>`
                                 });
                                 html += `</dl></li>`
                             }
@@ -742,19 +763,55 @@
             },
             menuRight: function () {  // 右侧菜单事件
                 layer.open({
-                    type: 1
-                    , title: '更多'
-                    , content: '<div style="padding: 15px;">处理右侧面板的操作</div>'
-                    , area: ['260px', '100%']
-                    , offset: 'rt' //右上角
-                    , anim: 'slideLeft'
-                    , shadeClose: true
-                    , scrollbar: false
+                    type: 1,
+                    title: '更多',
+                    content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+                    area: ['260px', '100%'],
+                    offset: 'rt', //右上角 
+                    anim: 'slideLeft',
+                    shadeClose: true,
+                    scrollbar: false
                 });
             }
         });
     });
 
+
+    $("#left").on("click", ".layui-nav-item dd", function () {
+        let an = $(this).text().trim();
+        switch (an) {
+            case "Map":
+                $(".layui-card-body").html(
+                    `<object data="./9.20作业/输入起始地查.html" width="100%" height="100%"></object>`
+                );
+                break;
+            case "banner":
+                $(".layui-card-body").html(
+                    `<object data="./9.20作业/轮播图.html" width="100%" height="100%"></object>`
+                );
+                break;
+            case "轮播图 3":
+                $(".layui-card-body").html(
+                    `<iframe src="./作业/轮播图4.html"></iframe>`
+                );
+                break;
+            case "轮播图 4":
+                $(".layui-card-body").html(
+                    `<iframe src="./作业/轮播图5.html"></iframe>`
+                );
+                break;
+            case "轮播图 5":
+                $(".layui-card-body").html(
+                    `<iframe src="./作业/游戏.html"></iframe>`
+                );
+                break;
+            case "轮播图 6":
+                $(".layui-card-body").html(
+                    `<iframe src="./作业/111.html"></iframe>`
+                );
+                break;
+        }
+    });
     $("#remo").click(function () {
         setTimeout(function () {
             window.location.href = "logon.html";
